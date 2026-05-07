@@ -1,135 +1,137 @@
+[SKILL.md](https://github.com/user-attachments/files/27473785/SKILL.md)
 ---
 name: us-stock-research-workflow
-description: 综合美股个股研究流程，包含全栈价值链映射、财务数据查询、新闻媒体追踪、分析师评级分析、风险评估、财报检查清单和资金适配性评估。输出结构化MD报告。
+description: "Comprehensive US stock research workflow covering full-stack value chain mapping, financial data queries, news & media tracking, analyst ratings analysis, risk assessment, earnings checklist, and capital fit evaluation. Outputs a structured MD report."
 agent_created: true
 ---
 
-# US Stock Research Workflow — 美股个股研究综合流程
+# US Stock Research Workflow
 
-## 目的
+## Purpose
 
-当用户想要研究一只美股时，系统化地完成从行业理解到最终决策建议的全流程分析。确保每次研究都覆盖相同维度，不遗漏关键信息。
+When the user wants to research a US stock, systematically execute a complete analysis from industry understanding to final actionable recommendation. Ensures every research session covers the same dimensions with no key information missed.
 
-## 触发条件
+## Trigger Conditions
 
-用户提到：
-- "帮我看看/分析一下 XXX 股票"
-- "这个股票怎么样"
-- "研究一下 XXX"
-- "XXX 值不值得买"
-- 或者在任何美股讨论上下文中，用户要求对特定股票进行深入分析
+The user says:
+- "Research / analyze stock XXX"
+- "How's this stock?"
+- "Is XXX worth buying?"
+- "Look into XXX"
+- Or any context where the user asks for an in-depth analysis of a specific US stock
 
-## 工作流程
+## Workflow
 
-### 第一步：全栈价值链映射（定位股票在行业中的位置）
+### Step 1: Full-Stack Value Chain Mapping
 
-参照 Reddit r/Stocks_Picks 方法论：
+Based on the Reddit r/Stocks_Picks methodology:
 
-1. **确定行业方向** — 这只股票属于哪个大行业（AI基础设施、金融、生物科技、能源等）
-2. **拆解价值链** — 从上游到下游列出该行业的完整链条
-3. **识别瓶颈环节** — 当前这个行业里，哪个环节供应最紧张、技术门槛最高、替代难度最大
-4. **定位该公司** — 它在价值链的哪个位置？是瓶颈环节还是非瓶颈环节？
+1. **Identify the industry** — Which major sector does this stock belong to? (AI infrastructure, financials, biotech, energy, etc.)
+2. **Break down the value chain** — List the complete chain from upstream to downstream
+3. **Identify the bottleneck** — Which link has the tightest supply, highest tech barrier, hardest substitution?
+4. **Locate the company** — Where in the chain does it sit? Is it at the bottleneck or not?
 
-输出格式：
+Output format:
 ```
-行业：XX
-价值链结构：上游(A) → 中游(B) → 下游(C)
-瓶颈环节：[环节名称] — 为什么
-该公司位置：[位置描述]
-核心护城河：[竞争优势]
+Industry: XX
+
+Value Chain: Upstream(A) → Midstream(B) → Downstream(C)
+Bottleneck: [Bottleneck name] — Why
+Company Position: [Position description]
+Core Moat: [Competitive advantage]
 ```
 
-### 第二步：基本面数据拉取
+### Step 2: Fundamental Data Fetching
 
-使用 `neodata-financial-search` 查询以下指标：
+Use `neodata-financial-search` to query the following:
 
-1. **行情数据**
-   - 当前股价、52周区间、YTD涨跌幅
-   - 市值、日均成交量、换手率
+1. **Trading Data**
+   - Current price, 52-week range, YTD return
+   - Market cap, average daily volume, turnover rate
 
-2. **财务数据**
-   - 营收及增长率（最近4个季度 + YoY）
-   - 毛利率、净利率
-   - EPS 及增长率
-   - 自由现金流 / 烧钱率
-   - 现金及等价物（确保不会倒闭）
+2. **Financial Data**
+   - Revenue & growth rate (last 4 quarters + YoY)
+   - Gross margin, net margin
+   - EPS & growth rate
+   - Free cash flow / burn rate
+   - Cash & equivalents (solvency check)
 
-3. **估值指标**
-   - 前瞻 PE / PB / PS
-   - 与同行业对比（贵还是便宜）
+3. **Valuation Metrics**
+   - Forward P/E / P/B / P/S
+   - vs industry peers (cheap or expensive)
 
-4. **分析师评级**
-   - 买入/持有/卖出比例
-   - 目标价均值及范围
-   - 最近评级调整方向
+4. **Analyst Ratings**
+   - Buy/Hold/Sell ratio
+   - Mean price target & range
+   - Recent rating changes direction
 
-### 第三步：新闻与媒体搜索
+### Step 3: News & Media Search
 
-进行至少两轮搜索：
+Run at least two rounds of searches:
 
-1. **公司特定新闻**
-   - 最新财报摘要
-   - 产品/技术进展
-   - 管理层变动
-   - 法律/监管事件
+1. **Company-specific News**
+   - Latest earnings summary
+   - Product/technology progress
+   - Management changes
+   - Legal/regulatory events
 
-2. **行业趋势新闻**
-   - 该行业目前的宏观趋势
-   - 竞争格局变化
-   - 政策/监管动向
+2. **Industry Trend News**
+   - Current macro trends in the sector
+   - Competitive landscape changes
+   - Policy/regulatory movements
 
-3. **Reddit/社交媒体情绪（可选）**
-   - 如果用户在 Reddit 上看到讨论，抓取热门帖子
-   - 评估讨论质量（有逻辑的分析 vs 无根据的喊单）
+3. **Reddit/Social Media Sentiment (optional)**
+   - If the user mentions Reddit discussions, fetch hot posts
+   - Assess discussion quality (reasoned analysis vs baseless pumping)
 
-### 第四步：风险评估
+### Step 4: Risk Assessment
 
-| 风险维度 | 评估问题 | 等级（低/中/高） |
-|---------|---------|----------------|
-| 行业风险 | 该行业是成长型还是周期型？ |
-| 估值风险 | 当前估值处于历史什么位置？ |
-| 资金适配 | 股价是否适合用户的小资金（<$1400）？ |
-| 仓位风险 | 如果买入会占用户总仓位多少？ |
-| 催化剂风险 | 下一个催化事件明确吗？如果不及预期会怎样？ |
-| 流动性风险 | 日均成交量够大吗？ |
+| Risk Dimension | Assessment Question | Level (Low/Med/High) |
+|--------------|-------------------|---------------------|
+| Industry Risk | Is this sector growth or cyclical? | |
+| Valuation Risk | Where is the current valuation vs history? | |
+| Capital Fit | Is the share price suitable for small capital (<$1400)? | |
+| Position Risk | What % of total capital would this position be? | |
+| Catalyst Risk | Is the next catalyst clear? What if it disappoints? | |
+| Liquidity Risk | Is daily volume sufficient? | |
 
-### 第五步：资金适配性评估
+### Step 5: Capital Fit Assessment
 
-根据用户的资金情况（约 $1,400 本金）给出买入建议：
+Based on the user's capital (~$1,400 principal):
 
-| 价格区间 | 能买几股 | 仓位占比 | 评价 |
-|---------|---------|---------|------|
-| < $50 | 可买 10+ 股 | 灵活 | 适合建仓 |
-| $50-100 | 可买 5-10 股 | 可接受 | 可以买入 |
-| $100-200 | 可买 2-5 股 | 偏高 | 谨慎，单股占比大 |
-| $200+ | 1-2 股 | 严重集中 | 不建议 |
+| Price Range | Shares You Can Buy | Position % | Assessment |
+|-----------|-------------------|-----------|----------|
+| < $50 | 10+ shares | Flexible | Good for building a position |
+| $50-100 | 5-10 shares | Acceptable | Can buy |
+| $100-200 | 2-5 shares | Elevated | Cautious, single stock % is high |
+| $200+ | 1-2 shares | Severely concentrated | Not recommended |
 
-### 第六步：财报检查清单（如果有即将发布的财报）
+### Step 6: Earnings Checklist (if earnings are upcoming)
 
-1. 财报发布日期和时间
-2. 市场预期（EPS 共识、营收共识）
-3. 上次财报表现（超预期还是不及预期？幅度？）
-4. 关键关注指标（客户数、ARPAC、毛利率等）
-5. 财报后的股价反应情景分析：
-   - 超预期 → 可能涨多少
-   - 符合预期 → 可能消化或微涨
-   - 不及预期 → 可能跌多少
+1. Earnings date and time
+2. Market expectations (EPS consensus, revenue consensus)
+3. Last earnings performance (beat or miss? by how much?)
+4. Key metrics to watch (customers, ARPAC, gross margin, etc.)
+5. Post-earnings scenario analysis:
+   - Beat → How much might it rise?
+   - In-line → Digest or slight up?
+   - Miss → How much might it fall?
 
-### 第七步：输出结构化 MD 报告
+### Step 7: Output Structured MD Report
 
-最终报告包含以下章节：
+The final report contains the following chapters:
 
 ```
-# [股票代码] 深度研究报告 — [日期]
+# [Ticker] Deep Research Report — [Date]
 
-## 一、公司基础信息
-## 二、行业价值链定位（含全栈映射图）
-## 三、核心财务数据表
-## 四、估值分析
-## 五、分析师共识
-## 六、新闻与趋势分析
-## 七、风险与收益评估
-## 八、资金适配性建议
-## 九、观察清单触发条件（如适用）
-## 十、总结：可操作的下一步
+## 1. Company Snapshot
+## 2. Industry Value Chain Positioning (with full-stack map)
+## 3. Core Financials (4 quarters + YoY trends)
+## 4. Valuation Analysis (peer comparison + historical percentiles)
+## 5. Analyst Consensus (rating distribution + price target range)
+## 6. News & Trend Analysis (event timeline)
+## 7. Risk & Reward Assessment (6-dimension matrix)
+## 8. Capital Fit Recommendation
+## 9. Watchlist Triggers (take-profit / stop-loss / add position)
+## 10. Summary: Actionable Next Steps
 ```
