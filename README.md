@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/27473760/README.md)
+[README.md](https://github.com/user-attachments/files/27474828/README.md)
 # US Stock Research Workflow
 
 > One research session, seven dimensions, one complete report. Turns your AI assistant into a systematic equity analyst.
@@ -156,7 +156,7 @@ Events organized as a timeline:
 
 ### 7️⃣ Capital Fit & Conclusion
 
-**Your Capital**: ~$1,400 principal (~¥10,000)
+**Your Capital**: [user's principal — set by the AI based on context]
 
 | Plan | Shares | Investment | % of Capital |
 |:----|:------|:----------|:-----------|
@@ -212,7 +212,7 @@ The final report follows this structure:
 
 ### Example 1: NU (Basic Research)
 
-**User:**
+**User (example — capital ~$5,000):**
 > Research NU (Nu Holdings). How's the stock?
 
 **AI executes the full 7-step workflow and outputs:**
@@ -308,13 +308,13 @@ Catalysts: Q1 2026 earnings (~mid-May), Mexico credit card market share gains.
 
 ## 8. Capital Fit
 
-Capital: ~$1,400 principal
+Example capital: ~$5,000 (varies by user — AI adjusts automatically)
 
 | Plan | Shares | Investment | % of Capital |
 |:----|:------|:----------|:-----------|
-| Conservative | 25 shares | ~$362 | ~26% |
-| Neutral | 40 shares | ~$579 | ~42% |
-| Aggressive | 55 shares | ~$796 | ~58% |
+| Conservative | 40 shares | ~$579 | ~12% |
+| Neutral | 70 shares | ~$1,014 | ~20% |
+| Aggressive | 100 shares | ~$1,448 | ~29% |
 
 ## 9. Watchlist
 
@@ -329,7 +329,7 @@ NU is in a reasonable undervalued zone. The LatAm digital banking thesis has str
 
 ### Example 2: MU (with Earnings Scenario)
 
-**User:**
+**User (example — same capital context):**
 > Analyze MU (Micron Technology). Should I buy?
 
 **Key sections from the AI output:**
@@ -353,16 +353,16 @@ Forward P/E: ~26x → Historical median ~15x — elevated
 | Dimension | Level |
 |:---------|:----|
 | Valuation Risk | 🔴 Up 128% YTD, good news fully priced in |
-| Capital Fit | 🔴 $666/share, you can only buy 1-2 shares (50%+ of capital) |
+| Capital Fit | 🔴 $666/share, a single share could dominate a small portfolio |
 
 ## 8. Capital Fit
 
 | Plan | Shares | Investment | % of Capital |
 |:----|:------|:----------|:-----------|
-| Conservative | 1 share | ~$666 | ~48% |
-| Aggressive | 2 shares | ~$1,332 | ~95% |
+| Conservative | 1 share | ~$666 | ~13% |
+| Aggressive | 2 shares | ~$1,332 | ~27% |
 
-📌 **Note**: Even the conservative plan puts nearly half your capital into one stock.
+📌 **Note**: Even one share is expensive. Verify fit against your actual capital.
 
 ## 10. Summary
 
@@ -391,7 +391,7 @@ Great company, bad price. After a 128% YTD run, valuation is stretched. At $666/
 
 ## 10. Summary
 
-High-risk speculative play. If you must, allocate no more than 5-10% of capital (~$70-140) and be prepared for a total loss.
+High-risk speculative play. If you must, allocate no more than 5-10% of capital and be prepared for a total loss.
 ```
 
 ---
