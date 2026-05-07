@@ -1,4 +1,4 @@
-[SKILL.md](https://github.com/user-attachments/files/27473785/SKILL.md)
+[SKILL.md](https://github.com/user-attachments/files/27474842/SKILL.md)
 ---
 name: us-stock-research-workflow
 description: "Comprehensive US stock research workflow covering full-stack value chain mapping, financial data queries, news & media tracking, analyst ratings analysis, risk assessment, earnings checklist, and capital fit evaluation. Outputs a structured MD report."
@@ -90,21 +90,23 @@ Run at least two rounds of searches:
 |--------------|-------------------|---------------------|
 | Industry Risk | Is this sector growth or cyclical? | |
 | Valuation Risk | Where is the current valuation vs history? | |
-| Capital Fit | Is the share price suitable for small capital (<$1400)? | |
+| Capital Fit | Is the share price suitable for the user's capital? (infer from context) | |
 | Position Risk | What % of total capital would this position be? | |
 | Catalyst Risk | Is the next catalyst clear? What if it disappoints? | |
 | Liquidity Risk | Is daily volume sufficient? | |
 
 ### Step 5: Capital Fit Assessment
 
-Based on the user's capital (~$1,400 principal):
+Determine the user's capital from conversation context (e.g., memory files, prior discussion, or ask if unknown). Then generate a 3-tier position sizing plan:
 
-| Price Range | Shares You Can Buy | Position % | Assessment |
-|-----------|-------------------|-----------|----------|
-| < $50 | 10+ shares | Flexible | Good for building a position |
-| $50-100 | 5-10 shares | Acceptable | Can buy |
-| $100-200 | 2-5 shares | Elevated | Cautious, single stock % is high |
-| $200+ | 1-2 shares | Severely concentrated | Not recommended |
+| Price Range | Position Sizing Logic | Assessment |
+|-----------|----------------------|-----------|
+| < 5% of capital per share | Can buy many shares, diversified | Good for building a position |
+| 5-10% per share | Can buy several shares | Acceptable |
+| 10-30% per share | Can buy few shares, concentrated | Caution — single stock dominates |
+| > 30% per share | 1 share or fractional only | Not recommended — unable to diversify |
+
+Always show a conservative/neutral/aggressive plan with specific share counts and dollar amounts based on the user's actual capital.
 
 ### Step 6: Earnings Checklist (if earnings are upcoming)
 
